@@ -1,1 +1,12 @@
-# Exercises_of_30_days_of_React
+---
+title: README
+---
+
+# Exercises of 30 Days of React
+
+This repository showcases, my exercises and lessons learnt in React.
+
+- **Original Repository**
+
+\[30 Days of React by
+Asabeneh\](<https://github.com/Asabeneh/30-Days-Of-React>)
