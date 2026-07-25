@@ -8,5 +8,5 @@ This repository showcases, my exercises and lessons learnt in React.
 
 - **Original Repository**
 
-\[30 Days of React by
-Asabeneh\](<https://github.com/Asabeneh/30-Days-Of-React>)
+  [30 Days of React by
+  Asabeneh](https://github.com/Asabeneh/30-Days-Of-React)
