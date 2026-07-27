@@ -4,6 +4,11 @@
 
 This repository showcases, my exercises and lessons learnt in React.
 
-- *Original Repository*
+**** Original Repository
 
   [[https://github.com/Asabeneh/30-Days-Of-React][30 Days of React by Asabeneh]]
+
+
+  | Day    | Markdown Files | Org Files       |
+  |--------+----------------+-----------------|
+  | Day_01 | [[file:md_files/Day_01/Exercise_1.md][Exercise_01.md]] | [[file:Org_Files/Day_01/Exercise_1.org][Exercise_01.org]] |
