@@ -1,0 +1,320 @@
+#+title: Exercise 1
+
+** Exercise
+*** Level 1
+
+#+begin_src js
+const countries = [
+    'Albania',
+    'Bolivia',
+    'Canada',
+    'Denmark',
+    'Ethiopia',
+    'Finland',
+    'Germany',
+    'Hungary',
+    'Ireland',
+    'Japan',
+    'Kenya'
+]
+
+const webTechs = [
+    'HTML',
+    'CSS',
+    'JavaScript',
+    'React',
+    'Redux',
+    'Node',
+    'MongoDB'
+]
+#+end_src
+
+1) Declare an empty array.
+   #+begin_src js
+let arr = Array()
+   #+end_src
+
+2) Declare an array with more than 5 number of elements.
+   #+NAME: exercises
+   #+begin_src js :results value
+let fruits = ['banana', 'lemon', 'cherry', 'mango', 'orange']
+return fruits;
+   #+end_src
+
+3) Find the length of your array.
+   #+begin_src js :var fruits=exercises :results output
+console.log(fruits.length)
+   #+end_src
+
+   #+RESULTS:
+   : 5
+
+4) Get the first item, the middle item and the last item of the array.
+   #+begin_src js :var fruits=exercises :results output
+console.log(fruits[0])
+console.log(fruits[Math.floor(fruits.length / 2)])
+console.log(fruits[fruits.length - 1])
+   #+end_src
+
+   #+RESULTS:
+   : banana
+   : cherry
+   : orange
+
+5) Declare an array called /mixedDataTypes/, put different data types in the array and find the length of the array. The array size should be greater than 5.
+   #+begin_src js :result value
+let mixedDataTypes = [
+    'Sri Lanka',
+    1948,
+    ['Sri Lanka', 'India', 'Pakistan', 'Bangladesh', 'Nepal', 'Maldives', 'Afganistan'],
+    {country: 'Sri Lanka', region: 'South Asia'},
+    {southAsianCountries: ['Sri Lanka', 'India', 'Pakistan', 'Bangladesh', 'Nepal', 'Maldives', 'Afganistan']},
+    [{capital: 'Sri Jayawardhanapura Kotte'}, {mainCity: 'Colombo'}]
+]
+
+console.log(mixedDataTypes.length)
+   #+end_src
+
+   #+RESULTS:
+   : 6
+   : undefined
+
+6) Declare an array variable name itCompanies and assign initial values Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon.
+   #+NAME: it-companies-names
+   #+begin_src js :results value
+let itCompanies = [
+    'Facebook',
+    'Google',
+    'Microsoft',
+    'Apple',
+    'IBM',
+    'Oracle',
+    'Amazon'
+]
+
+return itCompanies;
+   #+end_src
+
+7) Print the array using console.log.
+   #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies)
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'Facebook',
+   :   'Google',
+   :   'Microsoft',
+   :   'Apple',
+   :   'IBM',
+   :   'Oracle',
+   :   'Amazon'
+   : ]
+
+8) Print the number of companies in the array.
+   #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies.length)
+   #+end_src
+
+   #+RESULTS:
+   : 7
+
+9) Print the first company, middle and last company.
+   #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies[0])
+console.log(itCompanies[Math.floor(itCompanies.length / 2)])
+console.log(itCompanies[itCompanies.length - 1])
+   #+end_src
+
+   #+RESULTS:
+   : Facebook
+   : Apple
+   : Amazon
+
+10) Print out each company.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+for (let i = 0; i < itCompanies.length; i++) {
+    console.log(itCompanies[i])
+}
+    #+end_src
+
+    #+RESULTS:
+    : Facebook
+    : Google
+    : Microsoft
+    : Apple
+    : IBM
+    : Oracle
+    : Amazon
+
+11) Change each company name to uppercase one by one and print them out.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+for (let i in itCompanies) {
+    console.log(itCompanies[i].toUpperCase())
+}
+    #+end_src
+
+    #+RESULTS:
+    : FACEBOOK
+    : GOOGLE
+    : MICROSOFT
+    : APPLE
+    : IBM
+    : ORACLE
+    : AMAZON
+
+12) Print the array like a sentence: Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon are big IT companies.
+   #+begin_src js :var itCompanies=it-companies-names :results output
+  let arr = Array();
+  for (let i = 0; i < itCompanies.length - 2; i++) {
+   arr.push(itCompanies[i])
+  }
+  let string = arr.join(', ')
+
+  let sentence = `${string}, ${itCompanies[itCompanies.length - 2]} and ${itCompanies[itCompanies.length -1]} are big IT companies.`
+  console.log(sentence)
+   #+end_src
+
+   #+RESULTS:
+   : Facebook, Google, Microsoft, Apple, IBM, Oracle and Amazon are big IT companies.
+
+13) Check if a certain company exists in the itCompanies array. If it exist return the company or else return a company is not found.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let checkCompany = 'Google'
+if (itCompanies.includes(checkCompany)) {
+    console.log(checkCompany)
+}
+else {
+    console.log('company is not found')
+}
+    #+end_src
+
+    #+RESULTS:
+    : Google
+
+14) Filter out companies which have more than one 'o' without the filter method.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let companiesWithMoreThanOneO = Array();
+for (let j in itCompanies) {
+    let splittedArr = itCompanies[j].split('')
+    let countOfLetterO = 0;
+    for (let k in splittedArr) {
+        if (splittedArr[k] === 'o') {
+            countOfLetterO++
+        }
+    }
+    if (countOfLetterO > 1) {
+        companiesWithMoreThanOneO.push(itCompanies[j])
+    }
+}
+console.log(companiesWithMoreThanOneO)
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Facebook', 'Google', 'Microsoft' ]
+
+15) Sort the array using the sort() method.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies.sort())
+    #+end_src
+
+    #+RESULTS:
+    : [
+    :   'Amazon',
+    :   'Apple',
+    :   'Facebook',
+    :   'Google',
+    :   'IBM',
+    :   'Microsoft',
+    :   'Oracle'
+    : ]
+
+16) Reverse the array using reverse() method.
+   #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies.reverse())
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'Amazon',
+   :   'Oracle',
+   :   'IBM',
+   :   'Apple',
+   :   'Microsoft',
+   :   'Google',
+   :   'Facebook'
+   : ]
+
+17) Slice out the first 3 companies in the array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies.slice(3, itCompanies.length))
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Apple', 'IBM', 'Oracle', 'Amazon' ]
+
+18) Slice out the last 3 companies from the array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+console.log(itCompanies.slice(0, itCompanies.length - 3))
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Facebook', 'Google', 'Microsoft', 'Apple' ]
+
+19) Slice out the middle IT company or companies from the array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let middleNumber = itCompanies.length / 2
+if (itCompanies.indexOf(middleNumber) !== -1) {
+    let newArr = itCompanies.slice(Math.floor(middleNumber) - 1, Math.floor(middleNumber) + 1)
+    console.log(newArr)
+}
+else {
+    let newArr = itCompanies.slice(Math.floor(middleNumber), Math.floor(middleNumber) + 1)
+    console.log(newArr)
+}
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Apple' ]
+
+20) Remove the first IT company from the Array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let newArray = itCompanies.shift()
+console.log(itCompanies)
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle', 'Amazon' ]
+
+21) Remove the middle IT company or companies from the Array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let middleNumber = itCompanies.length / 2
+if (itCompanies.indexOf(middleNumber) !== -1) {
+    let newArray = itCompanies.splice(Math.floor(middleNumber) - 1, 2)
+}
+else {
+    let newArray = itCompanies.splice(Math.floor(middleNumber), 1)
+}
+console.log(itCompanies)
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Facebook', 'Google', 'Microsoft', 'IBM', 'Oracle', 'Amazon' ]
+
+22) Remove the last IT company from the Array.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let newArray = itCompanies.pop()
+console.log(itCompanies)
+    #+end_src
+
+    #+RESULTS:
+    : [ 'Facebook', 'Google', 'Microsoft', 'Apple', 'IBM', 'Oracle' ]
+
+23) Remove all IT companies.
+    #+begin_src js :var itCompanies=it-companies-names :results output
+let newArr = itCompanies.splice()
+console.log(newArr)
+    #+end_src
+
+    #+RESULTS:
+    : []
