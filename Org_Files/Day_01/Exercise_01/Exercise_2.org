@@ -1,0 +1,244 @@
+#+title: Exercise 2
+
+** Exercise
+*** Level 2
+
+1) Create a separate countries.js file and store the countries array into this file, create a separate file web_techs.js and store the webTechs array into this file. Access both file in main.js file
+
+  [[file:Level_2_Exercise/countries.js][Countries.js File]]
+  [[file:Level_2_Exercise/Web_Techs.js][Web_Techs.js File]]
+  [[file:Level_2_Exercise/main.js][Main.js File]]
+
+   - countries.js file
+     #+begin_src sh :results output :exports results :wrap "src js"
+    cat "./Level_2_Exercise/countries.js"
+     #+end_src
+
+     #+RESULTS:
+     #+begin_src js
+     const countries = [
+       'Albania',
+       'Bolivia',
+       'Canada',
+       'Denmark',
+       'Ethiopia',
+       'Finland',
+       'Germany',
+       'Hungary',
+       'Ireland',
+       'Japan',
+       'Kenya',
+     ]
+
+     module.exports = countries;
+     #+end_src
+
+2) web_techs.js file
+   #+begin_src sh :results output :exports results :wrap "src js"
+cat "./Level_2_Exercise/Web_Techs.js"
+   #+end_src
+
+   #+RESULTS:
+   #+begin_src js
+   const webTechs = [
+     'HTML',
+     'CSS',
+     'JavaScript',
+     'React',
+     'Redux',
+     'Node',
+     'MongoDB',
+   ]
+
+   module.exports = webTechs;
+   #+end_src
+
+   - main.js file
+     #+begin_src sh :results output :exports results :wrap "src js"
+    cat "./Level_2_Exercise/main.js"
+     #+end_src
+
+     #+RESULTS:
+     #+begin_src js
+     const countries = require('./countries.js');
+     const webTechs = require('./Web_Techs.js');
+
+     console.log(countries);
+     console.log(webTechs);
+     #+end_src
+
+3) First remove all the punctuations and change the string to array and count the number of words in the array.
+
+   #+begin_src js :results output
+let text = 'I love teaching and empowering people. I teach HTML, CSS, JS, React, Python.'
+console.log(text.split(/[., ]+/))
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'I',          'love',
+   :   'teaching',   'and',
+   :   'empowering', 'people',
+   :   'I',          'teach',
+   :   'HTML',       'CSS',
+   :   'JS',         'React',
+   :   'Python',     ''
+   : ]
+
+4) In the following shopping cart add, remove, edit items.
+
+   #+NAME: shopping-cart
+   #+begin_src js :results output
+const shoppingCart = ['Milk', 'Toffee', 'Tea', 'Honey']
+   #+end_src
+
+   - add 'Meat' in the beginning of your shopping cart if it has not been already added
+     #+NAME: updated-cart
+     #+begin_src js :results output :noweb yes
+<<shopping-cart>>
+if (!shoppingCart.includes('Meat')) {
+    shoppingCart.unshift('Meat')
+}
+     #+end_src
+
+     #+begin_src js :results output :noweb yes
+<<updated-cart>>
+console.log(shoppingCart)
+     #+end_src
+
+     #+RESULTS: updated-cart
+     : [ 'Meat', 'Milk', 'Toffee', 'Tea', 'Honey' ]
+
+   - add 'Sugar' at the end of your shopping cart if it has not been already added
+     #+NAME: reupdated-cart
+     #+begin_src js :results output :noweb yes
+<<updated-cart>>
+if (!shoppingCart.includes('Sugar')) {
+    shoppingCart.push('Sugar')
+}
+     #+end_src
+
+     #+begin_src js :results output :noweb yes
+<<reupdated-cart>>
+console.log(shoppingCart)
+     #+end_src
+
+     #+RESULTS:
+     : [ 'Meat', 'Milk', 'Toffee', 'Tea', 'Honey', 'Sugar' ]
+
+   - Remove Honey if you are allergic to honey
+     #+NAME: reupdated2-cart
+     #+begin_src js :results output :noweb yes
+<<reupdated-cart>>
+let allergy = true
+if (allergy) {
+    let num = shoppingCart.indexOf('Honey')
+    let sliced = shoppingCart.splice(num)
+    sliced.shift()
+    sliced.forEach((i) => shoppingCart.push(i))
+}
+     #+end_src
+
+     #+begin_src js :results output :noweb yes
+<<reupdated2-cart>>
+console.log(shoppingCart)
+     #+end_src
+
+     #+RESULTS:
+     : [ 'Meat', 'Milk', 'Toffee', 'Tea', 'Sugar' ]
+
+   - Modify 'Tea' to 'Green Tea'
+     #+begin_src js :results output :noweb yes
+<<reupdated2-cart>>
+let index = shoppingCart.indexOf('Tea')
+shoppingCart[index] = 'Green Tea'
+console.log(shoppingCart)
+     #+end_src
+
+     #+RESULTS:
+     : [ 'Meat', 'Milk', 'Toffee', 'Green Tea', 'Sugar' ]
+
+
+4) In countries array check if 'Ethiopia' exists in the array if it exists print 'ETHIOPIA'. If it does not exist add to the countries list.
+   #+NAME: countries-array
+   #+begin_src js :results output
+
+const countries = [
+  'Albania',
+  'Bolivia',
+  'Canada',
+  'Denmark',
+  'Ethiopia',
+  'Finland',
+  'Germany',
+  'Hungary',
+  'Ireland',
+  'Japan',
+  'Kenya',
+]
+
+   #+end_src
+
+   #+begin_src js :results output :noweb yes
+<<countries-array>>
+if (countries.includes('Ethiopia')) {
+    console.log(countries[countries.indexOf('Ethiopia')].toUpperCase())
+}
+else {
+    countries.push('Ethiopia')
+}
+   #+end_src
+
+   #+RESULTS:
+   : ETHIOPIA
+
+5) In the webTechs array check if Sass exists in the array and if it exists print 'Sass is a CSS preprocess'. If it does not exist add Sass to the array and print the array.
+   #+NAME: webtechs-array
+   #+begin_src js :results output
+const webTechs = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Redux',
+  'Node',
+  'MongoDB',
+]
+   #+end_src
+
+   #+begin_src js :results output :noweb yes
+<<webtechs-array>>
+if (webTechs.includes('Sass')) {
+    console.log('Sass is a CSS preprocess')
+}
+else {
+    webTechs.push('Sass')
+}
+console.log(webTechs)
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'HTML',       'CSS',
+   :   'JavaScript', 'React',
+   :   'Redux',      'Node',
+   :   'MongoDB',    'Sass'
+   : ]
+
+6) Concatenate the following two variables and store it in a fullstack variable
+   #+NAME: fullstack-variable
+   #+begin_src js :results output
+const frontEnd = ['HTML', 'CSS', 'JS', 'React', 'Redux']
+const backEnd = ['Node', 'Express', 'MongoDB']
+
+let fullStack = frontEnd.concat(backEnd);
+console.log(fullStack)
+   #+end_src
+
+   #+RESULTS: fullstack-variable
+   : [
+   :   'HTML',    'CSS',
+   :   'JS',      'React',
+   :   'Redux',   'Node',
+   :   'Express', 'MongoDB'
+   : ]
