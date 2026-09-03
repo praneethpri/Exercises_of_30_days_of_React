@@ -1,0 +1,2 @@
+  #+RESULTS:
+   : This dog's name is Lassie and she has 4 legs, with Brown color wool and a lovely woof woof sound.

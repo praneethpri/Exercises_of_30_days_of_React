@@ -1,0 +1,338 @@
+#+title: Exercise 03
+
+** Exercise
+*** Level 3
+
+1) Create an object literal called personAccount. It has firstName, lastName, incomes, expenses properties and it has totalIncome, totalExpense, accountInfo, addIncome, addExpense and accountBalance methods. Incomes is a set of incomes and its description and expenses is a set of incomes and its description.
+
+   #+begin_src js :results output
+    let personAccount = {
+        firstName: 'Praneeth',
+        lastName: 'Priyankara',
+        incomes: {
+            totalIncome: 100000,
+            totalExpense: 30000,
+            accountInfo: 'Personal Account',
+            addIncome: function addIncome() {},
+            addExpense: function addExpense() {},
+            accountBalance: function totalBalance() {
+                return this.totalIncome - this.totalExpense
+            },
+        },
+        expenses: {}
+    }
+   #+end_src
+
+2) Questions:2, 3 and 4 are based on the following two arrays:users and products ()
+
+
+   #+NAME: users-array
+   #+begin_src js
+const users = [
+  {
+    _id: 'ab12ex',
+    username: 'Alex',
+    email: 'alex@alex.com',
+    password: '123123',
+    createdAt: '08/01/2020 9:00 AM',
+    isLoggedIn: false,
+  },
+  {
+    _id: 'fg12cy',
+    username: 'Asab',
+    email: 'asab@asab.com',
+    password: '123456',
+    createdAt: '08/01/2020 9:30 AM',
+    isLoggedIn: true,
+  },
+  {
+    _id: 'zwf8md',
+    username: 'Brook',
+    email: 'brook@brook.com',
+    password: '123111',
+    createdAt: '08/01/2020 9:45 AM',
+    isLoggedIn: true,
+  },
+  {
+    _id: 'eefamr',
+    username: 'Martha',
+    email: 'martha@martha.com',
+    password: '123222',
+    createdAt: '08/01/2020 9:50 AM',
+    isLoggedIn: false,
+  },
+  {
+    _id: 'ghderc',
+    username: 'Thomas',
+    email: 'thomas@thomas.com',
+    password: '123333',
+    createdAt: '08/01/2020 10:00 AM',
+    isLoggedIn: false,
+  },
+]
+#+end_src
+
+#+NAME: products-array
+#+begin_src js
+const products = [
+  {
+    _id: 'eedfcf',
+    name: 'mobile phone',
+    description: 'Huawei Honor',
+    price: 200,
+    ratings: [
+      { userId: 'fg12cy', rate: 5 },
+      { userId: 'zwf8md', rate: 4.5 },
+    ],
+    likes: [],
+  },
+  {
+    _id: 'aegfal',
+    name: 'Laptop',
+    description: 'MacPro: System Darwin',
+    price: 2500,
+    ratings: [],
+    likes: ['fg12cy'],
+  },
+  {
+    _id: 'hedfcg',
+    name: 'TV',
+    description: 'Smart TV:Procaster',
+    price: 400,
+    ratings: [{ userId: 'fg12cy', rate: 5 }],
+    likes: ['fg12cy'],
+  },
+]
+   #+end_src
+
+Imagine you are getting the above users collection from a MongoDB database.
+
+        a) Create a function called signUp which allows user to add to the collection. If user exists, inform the user that he has already an account.
+
+           #+begin_src js :results output :noweb yes
+            <<users-array>>
+
+            let praneeth = {
+                _id: 'eidsof28',
+                username: 'Praneeth',
+                email: 'hello@praneethpriyankara.dev',
+                password: 'weufu9ur339',
+                createdAt: '23/08/2026 09:27 PM',
+                isLoggedIn: true,
+            }
+
+            function signUp(newUser) {
+                let userNames = Array();
+                for (let i in users) {
+                    userNames.push(userNames)
+                }
+
+                if (userNames.includes(newUser.username)) {
+                    console.log('This user already has an account.')
+                }
+                else {
+                    users.push(newUser)
+                }
+            }
+
+            signUp(praneeth)
+            console.log(users)
+           #+end_src
+
+           #+RESULTS:
+           #+begin_example
+           [
+             {
+               _id: 'ab12ex',
+               username: 'Alex',
+               email: 'alex@alex.com',
+               password: '123123',
+               createdAt: '08/01/2020 9:00 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'fg12cy',
+               username: 'Asab',
+               email: 'asab@asab.com',
+               password: '123456',
+               createdAt: '08/01/2020 9:30 AM',
+               isLoggedIn: true
+             },
+             {
+               _id: 'zwf8md',
+               username: 'Brook',
+               email: 'brook@brook.com',
+               password: '123111',
+               createdAt: '08/01/2020 9:45 AM',
+               isLoggedIn: true
+             },
+             {
+               _id: 'eefamr',
+               username: 'Martha',
+               email: 'martha@martha.com',
+               password: '123222',
+               createdAt: '08/01/2020 9:50 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'ghderc',
+               username: 'Thomas',
+               email: 'thomas@thomas.com',
+               password: '123333',
+               createdAt: '08/01/2020 10:00 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'eidsof28',
+               username: 'Praneeth',
+               email: 'hello@praneethpriyankara.dev',
+               password: 'weufu9ur339',
+               createdAt: '23/08/2026 09:27 PM',
+               isLoggedIn: true
+             }
+           ]
+           #+end_example
+
+        b) Create a function called signIn which allows user to sign in to the application
+
+           #+begin_src js :results output :noweb yes
+            <<users-array>>
+
+            function signIn(_id, username, email, password) {
+                let newItem = {
+                    _id: _id,
+                    username: username,
+                    email: email,
+                    createdAt: new Date(),
+                    isLoggedIn: true,
+                }
+
+                users.push(newItem)
+            }
+
+            signIn('sfhirw8', 'Priyankara', 'contact@praneethpriyankara.dev', 'efhwrwrhi9')
+            console.log(users)
+           #+end_src
+
+           #+RESULTS:
+           #+begin_example
+           [
+             {
+               _id: 'ab12ex',
+               username: 'Alex',
+               email: 'alex@alex.com',
+               password: '123123',
+               createdAt: '08/01/2020 9:00 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'fg12cy',
+               username: 'Asab',
+               email: 'asab@asab.com',
+               password: '123456',
+               createdAt: '08/01/2020 9:30 AM',
+               isLoggedIn: true
+             },
+             {
+               _id: 'zwf8md',
+               username: 'Brook',
+               email: 'brook@brook.com',
+               password: '123111',
+               createdAt: '08/01/2020 9:45 AM',
+               isLoggedIn: true
+             },
+             {
+               _id: 'eefamr',
+               username: 'Martha',
+               email: 'martha@martha.com',
+               password: '123222',
+               createdAt: '08/01/2020 9:50 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'ghderc',
+               username: 'Thomas',
+               email: 'thomas@thomas.com',
+               password: '123333',
+               createdAt: '08/01/2020 10:00 AM',
+               isLoggedIn: false
+             },
+             {
+               _id: 'sfhirw8',
+               username: 'Priyankara',
+               email: 'contact@praneethpriyankara.dev',
+               createdAt: 2026-08-23T16:35:55.544Z,
+               isLoggedIn: true
+             }
+           ]
+           #+end_example
+
+
+3) The products array has three elements and each of them has six properties.
+
+   a) Create a function called rateProduct which rates the product
+
+      #+begin_src js :results output :noweb yes
+        <<products-array>>
+
+       function rateProduct(_id, userId, rate) {
+           for (let i in products) {
+               if (_id === products[i]._id) {
+                   let k = {
+                       userId: userId,
+                       rate: rate,
+                   }
+                   products[i].ratings.push(k)
+               }
+           }
+       }
+
+       rateProduct('hrwe32', 'dhfrhe', 3)
+      #+end_src
+
+   b) Create a function called averageRating which calculate the average rating of a product
+
+      #+begin_src js :results output :noweb yes
+        <<products-array>>
+
+        function averageRating(_id) {
+            let ratingTotal = 0;
+            let ratesNumber = 0;
+            for (let i in products) {
+                if (_id === products[i]._id) {
+                    let ratingsArray = products[i].ratings
+                    for (let j in ratingsArray) {
+                        ratingTotal = ratingsArray[j].rate + ratingTotal;
+                        ratesNumber++;
+                    }
+                }
+            }
+            let averageRating = ratingTotal / ratesNumber
+            console.log(averageRating)
+        }
+
+        averageRating('eedfcf')
+      #+end_src
+
+      #+RESULTS:
+      : 4.75
+
+4) Create a function called likeProduct. This function will helps to like to the product if it is not liked and remove like if it was liked.
+
+   #+begin_src js :results output :noweb yes
+    <<products-array>>
+
+    function likeProduct(_id) {
+        for (let j in products) {
+           if (_id === products[j]._id) {
+               products[j].likes.push(_id)
+           }
+        }
+    }
+
+    likeProduct('eedfcf')
+    console.log(products[0].likes)
+   #+end_src
+
+   #+RESULTS:
+   : [ 'eedfcf' ]

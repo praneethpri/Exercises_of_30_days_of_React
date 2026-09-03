@@ -11,4 +11,4 @@ This repository showcases, my exercises and lessons learnt in React.
 
   | Day    | Markdown Files | Org Files       |
   |--------+----------------+-----------------|
-  | Day_01 | [[file:md_files/Day_01/Exercise_1.md][Exercise_01.md]] | [[file:Org_Files/Day_01/Exercise_1.org][Exercise_01.org]] |
+  | Day 01 | [[file:md_files/Day_01/Exercise_1.md][Exercise 01.md]] | [[file:Org_Files/Day_01/Exercise_1.org][Exercise 01.org]] |

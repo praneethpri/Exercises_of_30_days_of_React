@@ -1,0 +1,123 @@
+#+title: Exercise 01
+
+** Exercise
+*** Level 1
+
+1) Declare a function fullName and it takes firstName, lastName as a parameter and it returns your full - name.
+
+   #+begin_src js :results output
+function fullName(firstName, lastName) {
+    let fullName = firstName + ' ' + lastName
+    return fullName;
+}
+
+console.log(fullName('Praneeth', 'Priyankara'))
+   #+end_src
+
+   #+RESULTS:
+   : Praneeth Priyankara
+
+2) Declare a function addNumbers and it takes two two parameters and it returns sum.
+
+   #+begin_src js :results output
+function addNumbers(a, b) {
+    let sum = a + b
+    return sum;
+}
+
+console.log(addNumbers(5, 9))
+   #+end_src
+
+   #+RESULTS:
+   : 14
+
+3) Area of a circle is calculated as follows: area = π x r x r. Write a function which calculates _areaOfCircle
+
+   #+begin_src js :results output
+function areaOfCircle(radius) {
+    let area = (radius * radius) + 'π'
+    return area;
+}
+
+console.log(areaOfCircle(7))
+   #+end_src
+
+   #+RESULTS:
+   : 49π
+
+4) Temperature in oC can be converted to oF using this formula: oF = (oC x 9/5) + 32. Write a function which convert oC to oF convertCelciusToFahrenheit.
+
+   #+begin_src js :results output
+function convertCelciusToFarenheit(oC) {
+    let oF = (oC * 9 / 5) + 32
+    return oF;
+}
+
+console.log(convertCelciusToFarenheit(37))
+   #+end_src
+#+RESULTS: : 98.6
+
+5) Body mass index(BMI) is calculated as follows: bmi = weight in Kg / (height x height) in m2. Write a function which calculates bmi. BMI is used to broadly define different weight groups in adults 20 years old or older.Check if a person is underweight, normal, overweight or obese based the information given below.
+
+   - The same groups apply to both men and women.
+   - Underweight: BMI is less than 18.5
+   - Normal weight: BMI is 18.5 to 24.9
+   - Overweight: BMI is 25 to 29.9
+   - Obese: BMI is 30 or more
+
+     #+begin_src js :results output
+    function weightClass(weight, height) {
+     let bmi = weight / (height * height)
+      let weightClassName;
+      if (bmi < 18.5) {
+          weightClassName = 'Underweight';
+      }
+      else if (bmi >= 18.5 && bmi < 24.9) {
+          weightClassName = 'Normal'
+      }
+      else if (bmi >= 24.9 && bmi < 29.9) {
+          weightClassName = 'Overweight'
+      }
+      else {
+          weightClassName = 'Obese'
+      }
+
+      return weightClassName;
+    }
+
+    console.log(weightClass(60, 1.6))
+     #+end_src
+
+     #+RESULTS:
+     : Normal
+
+6) Write a function called checkSeason, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.
+
+   #+begin_src js :results output
+function checkSeason(month) {
+    let season;
+
+    if (month === 'September' || month === 'October' || month === 'November') {
+        season = 'The season is Autumn'
+    }
+    else if (month === 'December' || month === 'January' || month === 'February') {
+        season = 'The season is Winter'
+    }
+    else if (month === 'March' || month === 'April' || month === 'May') {
+        season = 'The season is Spring'
+    }
+    else if (month === 'June' || month === 'July' || month === 'August') {
+        season = 'The season is Summer'
+    }
+    else {
+        season = 'This is not a month'
+    }
+
+        return season;
+}
+
+    console.log(checkSeason('March'))
+   #+end_src
+
+   #+RESULTS:
+   : The season is Spring

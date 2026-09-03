@@ -1,0 +1,271 @@
+#+title: Exercise 02
+
+** Exercise
+*** Level 2
+
+#+NAME: object-exercise
+#+begin_src js
+const users = {
+  Alex: {
+    email: 'alex@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript'],
+    age: 20,
+    isLoggedIn: false,
+    points: 30
+  },
+  Asab: {
+    email: 'asab@asab.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Redux', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 25,
+    isLoggedIn: false,
+    points: 50
+  },
+  Brook: {
+    email: 'daniel@daniel.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux'],
+    age: 30,
+    isLoggedIn: true,
+    points: 50
+  },
+  Daniel: {
+    email: 'daniel@alex.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'Python'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  John: {
+    email: 'john@john.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js'],
+    age: 20,
+    isLoggedIn: true,
+    points: 50
+  },
+  Thomas: {
+    email: 'thomas@thomas.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  },
+  Paul: {
+    email: 'paul@paul.com',
+    skills: ['HTML', 'CSS', 'JavaScript', 'MongoDB', 'Express', 'React', 'Node'],
+    age: 20,
+    isLoggedIn: false,
+    points: 40
+  }
+}
+#+end_src
+
+1) Find the person who has many skills in the users object.
+   #+begin_src js :results output :noweb yes
+<<object-exercise>>
+let personHasTheMostSkills;
+
+let maxNumberArray = Array();
+for (let i in users) {
+    maxNumberArray.push(users[i].skills.length)
+}
+
+let maxNumber = Math.max(...maxNumberArray)
+
+let personThatHasMostSkills;
+for (let j in users) {
+    if (users[j].skills.length === maxNumber) {
+        personThatHasMostSkills = j
+    }
+    else {
+        continue
+    }
+}
+
+console.log(personThatHasMostSkills);
+   #+end_src
+
+   #+RESULTS:
+   : Asab
+
+2) Count logged in users,count users having greater than equal to 50 points from the following object.
+
+   #+begin_src js :results output :noweb yes
+    <<object-exercise>>
+
+    let loggedInUsers = 0;
+    let greaterThanOrEqualTo50Points = 0;
+
+    for (let i in users) {
+       if (users[i].isLoggedIn == true) {
+           loggedInUsers++
+       }
+        else {
+            continue;
+        }
+
+        if (users[i].points >= 50) {
+            greaterThanOrEqualTo50Points++
+        }
+        else {
+            continue;
+        }
+    }
+
+console.log(loggedInUsers);
+console.log(greaterThanOrEqualTo50Points);
+   #+end_src
+
+   #+RESULTS:
+   : 2
+   : 2
+
+3) Find people who are MERN stack developer from the users object
+
+   #+begin_src js :results output :noweb yes
+    <<object-exercise>>
+
+    let mernStackUsers = Array();
+
+    for (let i in users) {
+        if (users[i].skills.includes('MongoDB') && users[i].skills.includes('Express') && users[i].skills.includes('React') && users[i].skills.includes('Node')) {
+            mernStackUsers.push(i)
+        }
+        else {
+            continue;
+        }
+    }
+
+    console.log(mernStackUsers);
+   #+end_src
+
+   #+RESULTS:
+   : [ 'Asab', 'Paul' ]
+
+4) Set your name in the users object without modifying the original users object
+
+   #+begin_src js :results output :noweb yes
+<<object-exercise>>
+
+Object.assign(copiedObject, users)
+
+let praneeth = {
+    email: 'hello@praneethpriyankara.dev',
+    skills: ['HTML', 'CSS', 'JavaScript', 'React', 'Angular'],
+    age: 28,
+    isLoggedIn: true,
+    points: 85
+}
+
+copiedObject.Praneeth = praneeth
+
+console.log(copiedObject)
+   #+end_src
+
+   #+RESULTS:
+
+5) Get all keys or properties of users object
+
+   #+begin_src js :results output :noweb yes
+    <<object-exercise>>
+
+    let getAllKeys = Array();
+
+    for (let i in users) {
+        getAllKeys.push(i)
+    }
+
+    console.log(getAllKeys);
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'Alex',  'Asab',
+   :   'Brook', 'Daniel',
+   :   'John',  'Thomas',
+   :   'Paul'
+   : ]
+
+6) Get all the values of the users object
+
+   #+begin_src js :results output :noweb yes
+    <<object-exercise>>
+
+    let getAllValues = Array();
+
+    for (let j in users) {
+        getAllValues.push(users[j])
+    }
+
+    console.log(getAllValues);
+   #+end_src
+
+   #+RESULTS:
+   #+begin_example
+   [
+     {
+       email: 'alex@alex.com',
+       skills: [ 'HTML', 'CSS', 'JavaScript' ],
+       age: 20,
+       isLoggedIn: false,
+       points: 30
+     },
+     {
+       email: 'asab@asab.com',
+       skills: [
+         'HTML',
+         'CSS',
+         'JavaScript',
+         'Redux',
+         'MongoDB',
+         'Express',
+         'React',
+         'Node'
+       ],
+       age: 25,
+       isLoggedIn: false,
+       points: 50
+     },
+     {
+       email: 'daniel@daniel.com',
+       skills: [ 'HTML', 'CSS', 'JavaScript', 'React', 'Redux' ],
+       age: 30,
+       isLoggedIn: true,
+       points: 50
+     },
+     {
+       email: 'daniel@alex.com',
+       skills: [ 'HTML', 'CSS', 'JavaScript', 'Python' ],
+       age: 20,
+       isLoggedIn: false,
+       points: 40
+     },
+     {
+       email: 'john@john.com',
+       skills: [ 'HTML', 'CSS', 'JavaScript', 'React', 'Redux', 'Node.js' ],
+       age: 20,
+       isLoggedIn: true,
+       points: 50
+     },
+     {
+       email: 'thomas@thomas.com',
+       skills: [ 'HTML', 'CSS', 'JavaScript', 'React' ],
+       age: 20,
+       isLoggedIn: false,
+       points: 40
+     },
+     {
+       email: 'paul@paul.com',
+       skills: [
+         'HTML',
+         'CSS',
+         'JavaScript',
+         'MongoDB',
+         'Express',
+         'React',
+         'Node'
+       ],
+       age: 20,
+       isLoggedIn: false,
+       points: 40
+     }
+   ]
+   #+end_example
