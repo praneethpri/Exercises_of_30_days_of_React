@@ -1,5 +1,4 @@
 ---
-title: README
 ---
 
 # Exercises of 30 Days of React
