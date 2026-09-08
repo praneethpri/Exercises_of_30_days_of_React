@@ -154,3 +154,99 @@ console.log(addItem(['Milk', 'Banana', 'Apple'], 'Bread'))
 
    #+RESULTS:
    : Bread
+
+8) Declare are function name /removeItem/. It takes an index parameter and it returns an array after removing an item.
+
+   #+begin_src js :results output
+function removeItem(arr, param) {
+    if (arr.includes(param)) {
+        let indexNum = arr.indexOf(param)
+        let fullArray = Array();
+        for (let j = 0; j < arr.length; j++) {
+            if (j !== indexNum) {
+                fullArray.push(arr[j])
+            }
+            else {
+                continue;
+            }
+        }
+        return fullArray;
+    }
+    else {
+        return "Parameter doesn't exist.";
+    }
+}
+
+console.log(removeItem([1, 2, 3, 4, 5, 6, 7, 8, 9], 8))
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   1, 2, 3, 4,
+   :   5, 6, 7, 9
+   : ]
+
+9) Declare a function name /evensAndOdds/. It takes a positive integer as a parameter and it counts number of evens and odds in the number.
+
+   #+begin_src js :results output
+function evensAndOdds(integer) {
+    if (integer % 2 === 0) {
+        let half = integer / 2
+        return `The number of odds are ${half}. \nThe number of evens are ${half + 1}.`;
+    }
+    else {
+        let halfMinusOne = (integer - 1) / 2
+        return `The number of odds are ${halfMinusOne}. \nThe number of evens are ${halfMinusOne + 1}.`
+    }
+}
+
+console.log(evensAndOdds(80))
+   #+end_src
+
+   #+RESULTS:
+   : The number of odds are 40.
+   : The number of evens are 41.
+
+10) Write a function which takes any number of arguments and return the sum of the arguments.
+
+    #+begin_src js :results output
+function sumOfArguments() {
+    let sum = 0;
+    for (let i = 0; i < arguments.length; i++) {
+        sum = sum + arguments[i]
+    }
+    return sum;
+}
+
+console.log(sumOfArguments(1, 2, 3, 4))
+    #+end_src
+
+    #+RESULTS:
+    : 10
+
+11) Declare a function name /userIdGenerator/. When this function is called it generates seven character id. The function return the id.
+
+    #+begin_src js :results output
+function userIdGenerator() {
+    const characters = [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+];
+
+    let string = '';
+
+    for (let k = 0; k < 7; k++) {
+        string = string + `${characters[Math.floor(Math.random() * characters.length)]}`
+    }
+
+    return string;
+}
+
+console.log(userIdGenerator())
+    #+end_src
+
+    #+RESULTS:
+    : j1FyXeN
