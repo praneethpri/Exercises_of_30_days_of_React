@@ -1,0 +1,161 @@
+#+title: Exercise 03
+
+** Exercise
+*** Level 3
+
+1) Declare a function name /userIdGeneratedByUser/. It doesn’t take any parameter but it takes two inputs using prompt(). One of the input is the number of characters and the second input is the number of ids which are supposed to be generated.
+
+   #+begin_src js :results output
+function userIdGeneratedByUser() {
+
+    const characters = [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
+  'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
+  'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+];
+
+    let characterLength = prompt("Enter Character Length : ")
+    let numberOfIds = prompt("Number of IDs that are needed : ")
+
+    let returns = Array();
+
+    for (let a = 0; a < numberOfIds; a++) {
+        let string = '';
+        for (let b = 0; b < characterLength; b++) {
+            string = string + `${characters[Math.floor(Math.random() * characters.length)]}`
+        }
+        console.log(string)
+    }
+
+
+}
+
+userIdGeneratedByUser();
+
+   #+end_src
+
+   #+RESULTS:
+
+2) Write a function /generateColors/ which can generate any number of hexa or rgb colors.
+
+   #+begin_src js :results output
+function generateColors(type, num) {
+    function hexaColors() {
+        let hexaCodes = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+        let hexaString = '#'
+        for (let i = 0; i < 6; i++) {
+            hexaString = hexaString + `${hexaCodes[Math.floor(Math.random() * hexaCodes.length)]}`
+        }
+        return hexaString;
+    }
+
+    function rgbColors() {
+        let rgbCodesArray = Array();
+        for (let j = 0; j < 3; j++) {
+           rgbCodesArray.push(Math.floor(Math.random() * 256))
+        }
+        let rgbString = `rgb(${rgbCodesArray[0]}, ${rgbCodesArray[1]}, ${rgbCodesArray[2]})`
+        return rgbString;
+    }
+
+    let returnArray = Array();
+
+    if (type === 'hexa') {
+        for (let k = 0; k < num; k++) {
+            returnArray.push(hexaColors())
+        }
+    }
+    else {
+        for (let l = 0; l < num; l++) {
+           returnArray.push(rgbColors())
+        }
+    }
+
+    return returnArray;
+}
+
+console.log(generateColors('rgb', 5))
+console.log(generateColors('hexa', 5))
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   'rgb(90, 87, 139)',
+   :   'rgb(1, 219, 153)',
+   :   'rgb(199, 202, 198)',
+   :   'rgb(123, 234, 155)',
+   :   'rgb(83, 22, 16)'
+   : ]
+   : [ '#aac3aa', '#739370', '#41a3ea', '#eaba9a', '#8c30c5' ]
+
+3) Call your function /shuffleArray/, it takes an array as a parameter and it returns a shuffled array.
+
+   #+begin_src js :results output
+function shuffleArray(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+}
+
+let num = [1, 2, 3, 4]
+console.log(shuffleArray(num));
+   #+end_src
+
+   #+RESULTS:
+   : [ 2, 4, 1, 3 ]
+
+4) Call your function /factorial/, it takes a whole number as a parameter and it return a factorial of the number.
+
+   #+begin_src js :results output
+function factorial(num) {
+    let factorialNumber = 1;
+    for (let n = 1; n < num + 1; n++) {
+        factorialNumber = factorialNumber * n
+    }
+    return factorialNumber;
+}
+
+console.log(factorial(5))
+   #+end_src
+
+   #+RESULTS:
+   : 120
+
+5) Call your function /isEmpty/, it takes a parametr and it checks if it is empty or not.
+
+   #+begin_src js :results output
+function isEmpty() {
+    if (Object.keys(arguments).length === 0) {
+        console.log('This object is empty.')
+    }
+    else {
+        console.log('This object is not empty.')
+    }
+}
+
+isEmpty()
+   #+end_src
+
+   #+RESULTS:
+   : This object is empty.
+
+6) Write a function called /average/, it takes and array parameter and returns the average of items. Check if all the array items are number types. If not give return reasonable feedback.
+
+   #+begin_src js :results output
+function average(arr) {
+   let sum = 0;
+    arr.forEach((i) => sum = sum + i)
+    let average = sum / arr.length
+
+    return average;
+}
+
+console.log(average([1, 2, 3, 4, 5, 6]))
+   #+end_src
+
+   #+RESULTS:
+   : 3.5
