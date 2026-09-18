@@ -171,24 +171,24 @@ console.log(products.every((a) => typeof a.price != 'number'))
 
 12) Explain the difference between =forEach=, =map=, =filter= and =reduce=
 
-    #+BEGIN_NOTE
+    #+BEGIN_QUOTE
 - =forEach= : goes through each item of an array, and perform operations for each one.
 - =map= : goes through each item of an array, and combine them into one array and retun that array.
 - =filter= : filter an array to find the all items that matches given specificity.
 - =reduce= : goes through an array and keeping a memory of whats passed and perform accumulated operations.
-    #+END_NOTE
+    #+END_QUOTE
 
 13) Explain the difference between =filter=, =find= and =findIndex=
 
-    #+BEGIN_NOTE
+    #+BEGIN_QUOTE
 - =filter= : filtering an array and find all the items with the given specificity and return them as an array.
 - =find= : filtering an array and find the first occurance of the given specificity.
 - =findIndex= : filtering array and to find the first occurance of the given specificity and return the index of that.
-    #+END_NOTE
+    #+END_QUOTE
 
 14) Explain the difference between =some= and =every=
 
-    #+BEGIN_NOTE
+    #+BEGIN_QUOTE
 - =some= : search through an array and return true or false when some of the items matches the given specificity.
 - =every= : search through an array and return true or false when every item matches the give specificity.
-    #+END_NOTE
+    #+END_QUOTE
