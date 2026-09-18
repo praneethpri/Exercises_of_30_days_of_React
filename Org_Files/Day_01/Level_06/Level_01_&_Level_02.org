@@ -1,4 +1,4 @@
-#+title: Level 01
+#+title: Level 01 & Level 02
 
 ** Exercise
 ***  Level 01
@@ -32,3 +32,25 @@ console.log(cat)
    #+RESULTS:
    : Animal { name: 'Lassie', age: 4, color: 'Brown', legs: 4 }
    : Animal { name: 'Tom', age: 2, color: 'Orange', legs: 4 }
+
+** Exercise
+*** Level 02
+
+1) Override the method you create in Animal Class
+
+   #+begin_src js :results output :noweb yes
+<<animal-classes>>
+
+class Mammal extends Animal {
+    constructor (name, age, color, legs, mammal) {
+       super (name, age, color, legs)
+        this.mammal = mammal
+    }
+}
+
+const rabbit = new Mammal('Mochi', 1, 'White', 4, true)
+console.log(rabbit)
+   #+end_src
+
+   #+RESULTS:
+   : Mammal { name: 'Mochi', age: 1, color: 'White', legs: 4, mammal: true }

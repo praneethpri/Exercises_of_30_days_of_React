@@ -1,0 +1,84 @@
+#+title: Level 03
+
+** Exercise
+*** Level 01
+
+1) Let's try to develop a program which calculate measure of central tendency of a sample(mean, median, mode) and measure of variability(range, variance, standard deviation). In addition to those measures find the min, max, count, percentile, and frequency distribution of the sample. You can create a class called Statistics and create all the functions which do statistical calculations as method for the Statistics class. Check the output below.
+
+   #+NAME: ages-array
+   #+begin_src js :results output :noweb yes
+let ages = [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26]
+   #+end_src
+
+   #+begin_src js :results output :noweb yes
+<<ages-array>>
+
+class Statistics {
+    constructor (arr) {
+        this.arr = arr
+    }
+
+    getCount() {
+        return this.arr.length
+    }
+
+    getSum() {
+        return this.arr.reduce((acc, cur) => acc + cur, 0)
+    }
+
+    getMin() {
+        return Math.min(...this.arr)
+    }
+
+    getMax() {
+        return Math.max(...this.arr)
+    }
+
+    getRange() {
+        return this.getMax() - this.getMin()
+    }
+
+    getMean() {
+        return Math.round(this.getSum() / this.getCount())
+    }
+
+    getMedian() {
+        let sortedArr = this.arr.sort()
+        return sortedArr[Math.floor(this.getCount() / 2)]
+    }
+
+    getMode() {
+        let numbers = this.arr.map((i) => this.arr.filter((j) => j === i).length)
+        let maximumNumber = Math.max(...numbers)
+        let index = numbers.indexOf(maximumNumber)
+        let returns = { mode: this.arr[maximumNumber], count: maximumNumber }
+        return returns
+    }
+
+    getVariance() {
+        let subtractions = this.arr.map((i) => i - this.getMean())
+        let squred = subtractions.map((j) => j * j)
+        let sumOfSqured = squred.reduce((acc, cur) => acc + cur, 0)
+        return sumOfSqured / this.getCount()
+    }
+
+    getStandardDeviation() {
+        return Math.sqrt(this.getVariance())
+    }
+
+    getFrequencyDistribution() {
+        let numbers = this.arr.map((i) => this.arr.filter((j) => j === i))
+        let uniques = [...new Set(this.arr)].sort()
+        let frequency = uniques.map((i) => numbers.find((j) => j[0] === i))
+        let returns = frequency.map((i) => { percentage : (i.length / this.getCount()) * 100 })
+        return returns
+    }
+
+    }
+
+let stats = new Statistics(ages)
+
+console.log(stats.getFrequencyDistribution())
+   #+end_src
+
+   #+RESULTS:
