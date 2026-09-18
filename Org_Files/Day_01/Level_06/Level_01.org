@@ -1,0 +1,34 @@
+#+title: Level 01
+
+** Exercise
+***  Level 01
+
+1) Create an animal class. The class will have name, age, color, legs properties and create different methods.
+
+   #+NAME: animal-classes
+   #+begin_src js :results output :noweb yes
+class Animal {
+    constructor (name, age, color, legs) {
+        this.name = name
+        this.age = age
+        this.color = color
+        this.legs = legs
+    }
+}
+   #+end_src
+
+2) Create a Dog and Cat child class from the Animal Class.
+
+   #+begin_src js :results output :noweb yes
+<<animal-classes>>
+
+let dog = new Animal('Lassie', 4, 'Brown', 4)
+let cat = new Animal('Tom', 2, 'Orange', 4)
+
+console.log(dog)
+console.log(cat)
+   #+end_src
+
+   #+RESULTS:
+   : Animal { name: 'Lassie', age: 4, color: 'Brown', legs: 4 }
+   : Animal { name: 'Tom', age: 2, color: 'Orange', legs: 4 }
