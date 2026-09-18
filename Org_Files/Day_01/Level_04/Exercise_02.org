@@ -3,7 +3,7 @@
 ** Exercise
 *** Level 2
 
-1) Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, solveQuadEquation.
+1) Quadratic equation is calculated as follows: ax2 + bx + c = 0. Write a function which calculates value or values of a quadratic equation, /solveQuadEquation/.
 
    #+NAME: quadratic-equation
    #+begin_src js

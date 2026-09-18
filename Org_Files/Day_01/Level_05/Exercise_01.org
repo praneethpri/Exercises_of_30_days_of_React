@@ -1,0 +1,194 @@
+#+title: Exercise 01
+
+** Exercise
+*** Level 1
+
+#+NAME: products-array
+#+begin_src js :results output
+const products = [
+  { product: 'banana', price: 3 },
+  { product: 'mango', price: 6 },
+  { product: 'potato', price: ' ' },
+  { product: 'avocado', price: 8 },
+  { product: 'coffee', price: 10 },
+  { product: 'tea', price: '' },
+]
+#+end_src
+
+1) Print the price of each product using forEach.
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+products.forEach((i) => console.log(i.price))
+   #+end_src
+
+   #+RESULTS:
+   : 3
+   : 6
+   :
+   : 8
+   : 10
+   :
+
+2) Print the prodcut items as follows using forEach.
+   #+begin_src js
+The price of banana is 3 euros.
+The price of mango is 6 euros.
+The price of potato is unknown.
+The price of avocado is 8 euros.
+The price of coffee is 10 euros.
+The price of tea is unknown.
+   #+end_src
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+products.forEach((j) => console.log(`The price of ${j.product} is ${j.price === "" || j.price === " " ? 'unknown.' : j.price + ' euros.'}`))
+   #+end_src
+
+   #+RESULTS:
+   : The price of banana is 3 euros.
+   : The price of mango is 6 euros.
+   : The price of potato is unknown.
+   : The price of avocado is 8 euros.
+   : The price of coffee is 10 euros.
+   : The price of tea is unknown.
+
+3) Calculate the sum of all the prices using forEach.
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let sumOfAllThePrices = 0;
+products.forEach((k) => {typeof (k.price + 1) === "number" ? sumOfAllThePrices += k.price : sumOfAllThePrices += 0})
+console.log(sumOfAllThePrices)
+   #+end_src
+
+   #+RESULTS:
+   : 27
+
+4) Create an array of prices using map and store it in a variable prices
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let prices = products.map((a) => a.price)
+console.log(prices)
+   #+end_src
+
+   #+RESULTS:
+   : [ 3, 6, ' ', 8, 10, '' ]
+
+5) Filter products with prices
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let pricesFiltered = products.filter((a) => typeof a.price == 'number')
+console.log(pricesFiltered)
+   #+end_src
+
+   #+RESULTS:
+   : [
+   :   { product: 'banana', price: 3 },
+   :   { product: 'mango', price: 6 },
+   :   { product: 'avocado', price: 8 },
+   :   { product: 'coffee', price: 10 }
+   : ]
+
+6) Use method chaining to get sum of the prices (map, filter, reduce)
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let pricesReFiltered = products.filter((a) => typeof a.price == 'number')
+let mappedArray = pricesReFiltered.map((a) => a.price)
+let sum = mappedArray.reduce((acc, cur) => acc + cur)
+console.log(sum)
+   #+end_src
+
+   #+RESULTS:
+   : 27
+
+7) Calculate the sum of all the prices using reduce only.
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let reducedArrayNew = products.reduce((acc, cur) => typeof (cur.price + 1) == 'number' ? acc + cur.price : acc + 0, 0)
+console.log(reducedArrayNew)
+   #+end_src
+
+   #+RESULTS:
+   : 27
+
+8) Find the first product which does not have a price value.
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let noPrice = products.find((a) => typeof a.price != 'number')
+console.log(noPrice)
+   #+end_src
+
+   #+RESULTS:
+   : { product: 'potato', price: ' ' }
+
+9) Find the index of the first product, which does not have a price value.
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+let noPrice = products.findIndex((a) => typeof a.price != 'number')
+console.log(noPrice)
+   #+end_src
+
+   #+RESULTS:
+   : 2
+
+10) Check if some products do not have a price value
+
+   #+begin_src js :results output :noweb yes
+<<products-array>>
+
+console.log(products.some((a) => typeof a.price != 'number'))
+   #+end_src
+
+   #+RESULTS:
+   : true
+
+11) Check if all the products have a price value
+
+    #+begin_src js :results output :noweb yes
+<<products-array>>
+
+console.log(products.every((a) => typeof a.price != 'number'))
+    #+end_src
+
+    #+RESULTS:
+    : false
+
+12) Explain the difference between =forEach=, =map=, =filter= and =reduce=
+
+    #+BEGIN_NOTE
+- =forEach= : goes through each item of an array, and perform operations for each one.
+- =map= : goes through each item of an array, and combine them into one array and retun that array.
+- =filter= : filter an array to find the all items that matches given specificity.
+- =reduce= : goes through an array and keeping a memory of whats passed and perform accumulated operations.
+    #+END_NOTE
+
+13) Explain the difference between =filter=, =find= and =findIndex=
+
+    #+BEGIN_NOTE
+- =filter= : filtering an array and find all the items with the given specificity and return them as an array.
+- =find= : filtering an array and find the first occurance of the given specificity.
+- =findIndex= : filtering array and to find the first occurance of the given specificity and return the index of that.
+    #+END_NOTE
+
+14) Explain the difference between =some= and =every=
+
+    #+BEGIN_NOTE
+- =some= : search through an array and return true or false when some of the items matches the given specificity.
+- =every= : search through an array and return true or false when every item matches the give specificity.
+    #+END_NOTE
