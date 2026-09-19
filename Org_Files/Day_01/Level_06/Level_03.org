@@ -70,7 +70,7 @@ class Statistics {
         let numbers = this.arr.map((i) => this.arr.filter((j) => j === i))
         let uniques = [...new Set(this.arr)].sort()
         let frequency = uniques.map((i) => numbers.find((j) => j[0] === i))
-        let returns = frequency.map((i) => { percentage : (i.length / this.getCount()) * 100 })
+        let returns = frequency.map((i) => { return { percentage : (i.length / this.getCount()) * 100, number : i[0] } })
         return returns
     }
 
@@ -78,7 +78,42 @@ class Statistics {
 
 let stats = new Statistics(ages)
 
-console.log(stats.getFrequencyDistribution())
+console.log('Count : ', stats.getCount())
+console.log('Sum : ', stats.getSum())
+console.log('Min : ', stats.getMin())
+console.log('Max : ', stats.getMax())
+console.log('Range : ', stats.getRange())
+console.log('Mean : ', stats.getMean())
+console.log('Median : ', stats.getMedian())
+console.log('Mode : ', stats.getMode())
+console.log('Variance : ', stats.getVariance())
+console.log('Standard Deviation : ', stats.getStandardDeviation())
+console.log('Frequency Distribution : ', stats.getFrequencyDistribution())
    #+end_src
 
    #+RESULTS:
+   #+begin_example
+   Count :  25
+   Sum :  744
+   Min :  24
+   Max :  38
+   Range :  14
+   Mean :  30
+   Median :  29
+   Mode :  { mode: 26, count: 5 }
+   Variance :  17.6
+   Standard Deviation :  4.1952353926806065
+   Frequency Distribution :  [
+     { percentage: 8, number: 24 },
+     { percentage: 4, number: 25 },
+     { percentage: 20, number: 26 },
+     { percentage: 16, number: 27 },
+     { percentage: 4, number: 29 },
+     { percentage: 8, number: 31 },
+     { percentage: 12, number: 32 },
+     { percentage: 8, number: 33 },
+     { percentage: 8, number: 34 },
+     { percentage: 8, number: 37 },
+     { percentage: 4, number: 38 }
+   ]
+   #+end_example

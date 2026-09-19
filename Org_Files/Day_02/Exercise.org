@@ -1,0 +1,47 @@
+#+title: Exercise
+
+** Exercise
+
+*** Exercise : What is React?
+
+1) What is React?
+
+   #+begin_quote
+React is a JavaScript Library that can manipulate DOM.
+   #+end_quote
+
+2) What is a Library?
+
+   #+begin_quote
+
+   #+end_quote
+
+3) What is a single page applicaton.
+
+   #+begin_quote
+Single page applications render a single html page and then every other elements and interactions handled by the virtual DOM.
+   #+end_quote
+
+4) What is a Component?
+
+   #+begin_quote
+Component is a reusable element that can be used in again and again.
+   #+end_quote
+
+5) What is the latest version of React?
+
+   #+begin_quote
+As of writing this 19.3 is the latest version
+   #+end_quote
+
+6) What is DOM?
+
+   #+begin_quote
+DOM is the Document Object Model which manipulates whats shown in the web page.
+   #+end_quote
+
+7) What is React Virtual Dom?
+
+   #+begin_quote
+
+   #+end_quote
