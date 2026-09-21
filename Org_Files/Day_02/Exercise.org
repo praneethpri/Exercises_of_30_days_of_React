@@ -13,7 +13,7 @@ React is a JavaScript Library that can manipulate DOM.
 2) What is a Library?
 
    #+begin_quote
-
+React is considerd a library because it only manipulates the surface level DOM without much constrains on how it should be written.
    #+end_quote
 
 3) What is a single page applicaton.
@@ -43,5 +43,76 @@ DOM is the Document Object Model which manipulates whats shown in the web page.
 7) What is React Virtual Dom?
 
    #+begin_quote
-
+React Virtual DOM has its own DOM instead of the Browser's default DOM and manipulates it.
    #+end_quote
+
+8) What does a web application or a website (composed of) have?
+
+   #+begin_quote
+Web application typically composed of a Frontend and a Backend.
+   #+end_quote
+
+*** Exercise : Why React?
+
+1) Why did you choose React?
+
+   #+begin_quote
+I choose to learn React because it is one of the most popular frontend libraries.
+   #+end_quote
+
+2) What measures do you use to know popularity?
+
+   #+begin_quote
+Youtube and other social media platforms.
+   #+end_quote
+
+3) What is more popular React or Vue?
+
+   #+begin_quote
+  React
+   #+end_quote
+
+
+*** Exercise : JSX
+
+1) What is an HTML element?
+
+   #+begin_quote
+HTML elements has different building blocks to build a webpage. Those are call HTML elements.
+   #+end_quote
+
+2) How to write a self closing HTML element?
+
+   #+begin_quote
+Self closing HTML elements are written between '<' and '>' cheverons as usual first tag and before the ending chevron writing a '/'.
+   #+end_quote
+
+3) What is an HTML attribute? Write some of them.
+
+   #+begin_quote
+ HTML attributes are values passed into the HTML elements to alter its default behaviours.
+   #+end_quote
+
+   #+begin_src html
+<div class="rectangle"></div>
+<p style="color: blue;">Hello, World!</p>
+<img src="/path/to/image.png" alt="globe" />
+   #+end_src
+
+4) What is JSX?
+
+   #+begin_quote
+A special syntax that can work with React for rendering to the DOM.
+   #+end_quote
+
+5) What is babel?
+
+   #+begin_example
+Babel is a transpiler that converts JSX to JavaScript.
+   #+end_example
+
+6) What is transpiler?
+
+   #+begin_example
+transpiler is compiler that translates one programming language to another.
+   #+end_example
