@@ -6,92 +6,92 @@
 
 1) What is React?
 
-   #+begin_quote
+   0+begin_example
 React is a JavaScript Library that can manipulate DOM.
-   #+end_quote
+   0+end_example
 
 2) What is a Library?
 
-   #+begin_quote
+   1+begin_example
 React is considerd a library because it only manipulates the surface level DOM without much constrains on how it should be written.
-   #+end_quote
+   1+end_example
 
 3) What is a single page applicaton.
 
-   #+begin_quote
+   2+begin_example
 Single page applications render a single html page and then every other elements and interactions handled by the virtual DOM.
-   #+end_quote
+   2+end_example
 
 4) What is a Component?
 
-   #+begin_quote
+   3+begin_example
 Component is a reusable element that can be used in again and again.
-   #+end_quote
+   3+end_example
 
 5) What is the latest version of React?
 
-   #+begin_quote
+   4+begin_example
 As of writing this 19.3 is the latest version
-   #+end_quote
+   4+end_example
 
 6) What is DOM?
 
-   #+begin_quote
+   5+begin_example
 DOM is the Document Object Model which manipulates whats shown in the web page.
-   #+end_quote
+   5+end_example
 
 7) What is React Virtual Dom?
 
-   #+begin_quote
+   6+begin_example
 React Virtual DOM has its own DOM instead of the Browser's default DOM and manipulates it.
-   #+end_quote
+   6+end_example
 
 8) What does a web application or a website (composed of) have?
 
-   #+begin_quote
+   7+begin_example
 Web application typically composed of a Frontend and a Backend.
-   #+end_quote
+   7+end_example
 
 *** Exercise : Why React?
 
 1) Why did you choose React?
 
-   #+begin_quote
+   8+begin_example
 I choose to learn React because it is one of the most popular frontend libraries.
-   #+end_quote
+   8+end_example
 
 2) What measures do you use to know popularity?
 
-   #+begin_quote
+   9+begin_example
 Youtube and other social media platforms.
-   #+end_quote
+   9+end_example
 
 3) What is more popular React or Vue?
 
-   #+begin_quote
+   10+begin_example
   React
-   #+end_quote
+   10+end_example
 
 
 *** Exercise : JSX
 
 1) What is an HTML element?
 
-   #+begin_quote
+   #+begin_example
 HTML elements has different building blocks to build a webpage. Those are call HTML elements.
-   #+end_quote
+   #+end_example
 
 2) How to write a self closing HTML element?
 
-   #+begin_quote
+   #+begin_example
 Self closing HTML elements are written between '<' and '>' cheverons as usual first tag and before the ending chevron writing a '/'.
-   #+end_quote
+   #+end_example
 
 3) What is an HTML attribute? Write some of them.
 
-   #+begin_quote
+   #+begin_example
  HTML attributes are values passed into the HTML elements to alter its default behaviours.
-   #+end_quote
+   #+end_example
 
    #+begin_src html
 <div class="rectangle"></div>
@@ -101,9 +101,9 @@ Self closing HTML elements are written between '<' and '>' cheverons as usual fi
 
 4) What is JSX?
 
-   #+begin_quote
+   #+begin_example
 A special syntax that can work with React for rendering to the DOM.
-   #+end_quote
+   #+end_example
 
 5) What is babel?
 
