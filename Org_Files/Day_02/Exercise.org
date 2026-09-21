@@ -6,71 +6,71 @@
 
 1) What is React?
 
-   0+begin_example
+   #+begin_example
 React is a JavaScript Library that can manipulate DOM.
-   0+end_example
+   #+end_example
 
 2) What is a Library?
 
-   1+begin_example
+   #+begin_example
 React is considerd a library because it only manipulates the surface level DOM without much constrains on how it should be written.
-   1+end_example
+   #+end_example
 
 3) What is a single page applicaton.
 
-   2+begin_example
+   #+begin_example
 Single page applications render a single html page and then every other elements and interactions handled by the virtual DOM.
-   2+end_example
+   #+end_example
 
 4) What is a Component?
 
-   3+begin_example
+   #+begin_example
 Component is a reusable element that can be used in again and again.
-   3+end_example
+   #+end_example
 
 5) What is the latest version of React?
 
-   4+begin_example
+   #+begin_example
 As of writing this 19.3 is the latest version
-   4+end_example
+   #+end_example
 
 6) What is DOM?
 
-   5+begin_example
+   #+begin_example
 DOM is the Document Object Model which manipulates whats shown in the web page.
-   5+end_example
+   #+end_example
 
 7) What is React Virtual Dom?
 
-   6+begin_example
+   #+begin_example
 React Virtual DOM has its own DOM instead of the Browser's default DOM and manipulates it.
-   6+end_example
+   #+end_example
 
 8) What does a web application or a website (composed of) have?
 
-   7+begin_example
+   #+begin_example
 Web application typically composed of a Frontend and a Backend.
-   7+end_example
+   #+end_example
 
 *** Exercise : Why React?
 
 1) Why did you choose React?
 
-   8+begin_example
+   #+begin_example
 I choose to learn React because it is one of the most popular frontend libraries.
-   8+end_example
+   #+end_example
 
 2) What measures do you use to know popularity?
 
-   9+begin_example
+   #+begin_example
 Youtube and other social media platforms.
-   9+end_example
+   #+end_example
 
 3) What is more popular React or Vue?
 
-   10+begin_example
+   #+begin_example
   React
-   10+end_example
+   #+end_example
 
 
 *** Exercise : JSX
